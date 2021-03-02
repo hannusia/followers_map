@@ -11,6 +11,12 @@ def navigation(path: str):
     data = read_file(path)
     json_obj = data
     path = []
+    print(''' To navigate in json-file you have 4 options:
+    1) stop - end a program;
+    2) show - print content of given json-object
+    3) up - move pointer to parent object
+    4) down - show all available children of given json-object and move pointer to one of them
+    ''')
     while True:
         path.apend(json_obj)
         if type(json_obj) == list:
@@ -39,3 +45,7 @@ def navigation(path: str):
                     json_obj = json_obj[index]
         else:
             print('You entered invalid option. Try again.')
+
+if __name__ == '__main__':
+    path = input('Enter path to file: ')
+    navigation(path)
